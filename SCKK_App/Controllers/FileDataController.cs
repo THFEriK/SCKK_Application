@@ -74,7 +74,7 @@ namespace SCKK_App.Controllers
                                 }
 
                                 //   Lemondott hívás [result]   \\
-                                else if (row[7] == "Lemondták") //Ékezet!!!!!
+                                else if (row[7].StartsWith("Lemondt")) //Ékezet!!!!!
                                 {
                                     Models.ResultModel output = new Models.ResultModel();
 
