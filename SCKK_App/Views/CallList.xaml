@@ -108,10 +108,10 @@
                 <BindingGroup/>
             </DataGrid.ItemBindingGroup>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Név" Binding="{Binding name, AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Azonosító" Binding="{Binding Path=identifier, AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Idő" Binding="{Binding Path=time, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Érkezés" Binding="{Binding Path=callId.time, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Név" Binding="{Binding name, Mode=OneTime, AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Azonosító" Binding="{Binding identifier, Mode=OneTime, AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Idő" Binding="{Binding time, StringFormat='HH:mm', Mode=OneTime, AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Érkezés" Binding="{Binding callId.time, Mode=OneTime, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BarOpenerBtn" VerticalAlignment="Bottom" Grid.ColumnSpan="2" MaxWidth="50" Height="20" Background="Transparent" BorderBrush="#282438" Click="BarOpener_Click">

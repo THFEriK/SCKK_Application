@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
+using SCKK_App.Controllers;
+using SCKK_App.Models;
 
 namespace SCKK_App.Views
 {
@@ -24,14 +26,13 @@ namespace SCKK_App.Views
         private bool sidebarOpen = false;
         private bool isGrouped = false;
 
+
         public CallList()
         {
-            Controllers.FileDataController reading = new Controllers.FileDataController();
+            FileDataController reading = new FileDataController();
             reading.FileRead();
             reading.FileCompletion();
-
             InitializeComponent();
-
             DataGridStatistic.ItemsSource = reading.results;
         }
 
