@@ -1,0 +1,77 @@
+﻿<Window x:Class="SCKK_App.Views.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SCKK_App.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="SCKK LogFilter"
+        Background="#FF201E2D"
+        Height="500"
+        Width="800"
+        MinWidth="700"
+        MinHeight="470"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="sidebar" Width="48"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FF0B0711" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="BannerImg" Height="auto" Width="40" Margin="4,18,0,18" Source="../Resources/SCKK.png" HorizontalAlignment="Left" Stretch="Fill"/>
+                    <TextBlock Text="S C K K" FontSize="30" Foreground="#EB3E41" VerticalAlignment="Center" Margin="12 0" FontWeight="Bold"/>
+                </StackPanel>
+                <ListView x:Name="ListViewMenu" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" Background="#FF0B0711" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.BorderBrush>
+                        <SolidColorBrush Color="Black" Opacity="0"/>
+                    </ListView.BorderBrush>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Home"/>
+                            <TextBlock Text="Kezdőlap" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="TextSubject"/>
+                            <TextBlock Text="Hivások" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="InsertChart"/>
+                            <TextBlock Text="Statisztikák" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="CarPark"/>
+                            <TextBlock Text="Telephely" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="NotebookOutline"/>
+                            <TextBlock Text="Tudás" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="40">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="FileDocumentBox"/>
+                            <TextBlock Text="Leader" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <Button VerticalAlignment="Bottom" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="DrawerBtn_Click">
+                <materialDesign:PackIcon x:Name="SideBarOpenerIcon" Width="20" Height="auto" VerticalAlignment="Center" Kind="ArrowRight" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" x:Name="GridPrincipal">
+            <!-- Child -->
+        </Grid>
+    </Grid>
+</Window>

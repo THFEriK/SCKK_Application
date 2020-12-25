@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="SCKK_App.Views.CallList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SCKK_App.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="Gray"/>
+        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="DataGridCell">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="Expander">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="14"/>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="DataGridRow">
+            <Style.Setters>
+                <Setter Property="Background" Value="#FF181622"></Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding name}" Value="Lemondott">
+                    <Setter Property="Background" Value="#CC2E2E"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding name}" Value="1-perces">
+                    <Setter Property="Background" Value="#D9B200"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding name}" Value="Hiányzó">
+                    <Setter Property="Background" Value="gray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition x:Name="ButtonBar" Height="0" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Row 1 -->
+        <DataGrid x:Name="DataGridStatistic" 
+                  Grid.ColumnSpan="2" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  HorizontalContentAlignment="Center" 
+                  FontWeight="DemiBold" 
+                  FontSize="13px" 
+                  TextElement.FontSize="12"
+                  MinColumnWidth="0" 
+                  Background="#FF181622"
+                  GridLinesVisibility="None"
+                  BorderBrush="White"
+                  Foreground="#DDFFFFFF"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  EnableColumnVirtualization="True" >
+            <DataGrid.GroupStyle>
+                <!-- Style for groups at top level -->
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property='ScrollViewer.CanContentScroll' Value='False' />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="False" Background="#34304A" BorderBrush="#4C456B" Foreground="#FFEEEEEE" BorderThickness="0,0,0,1" >
+                                            <Expander.Header>
+                                                <DockPanel Margin="0">
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=ItemCount, AsyncState=true}" Width="25" Margin="0,0,10,0" HorizontalAlignment="Left" TextAlignment="Right"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Name, AsyncState=true}" Width="200" HorizontalAlignment="Left"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+
+            <DataGrid.ItemBindingGroup>
+                <BindingGroup/>
+            </DataGrid.ItemBindingGroup>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding name, AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Azonosító" Binding="{Binding Path=identifier, AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Idő" Binding="{Binding Path=time, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Érkezés" Binding="{Binding Path=callId.time, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BarOpenerBtn" VerticalAlignment="Bottom" Grid.ColumnSpan="2" MaxWidth="50" Height="20" Background="Transparent" BorderBrush="#282438" Click="BarOpener_Click">
+            <materialDesign:PackIcon x:Name="BarOpenerIcon" Width="20" Height="20" VerticalAlignment="Center" Kind="ArrowDropUp"/>
+        </Button>
+
+        <!-- Row 2 -->
+        <Button x:Name="GrouperBtn" Grid.Row="1" Margin="40 0" MaxWidth="260" Click="Grouping_Click" Content="Csoportosítás"/>
+
+        <ComboBox  x:Name="RandomCb" Grid.Row="1" Grid.Column="1" Margin="40 0" MaxWidth="260">
+            <ComboBoxItem Content="X"/>
+            <ComboBoxItem Content="Y"/>
+            <ComboBoxItem Content="Z"/>
+        </ComboBox>
+
+    </Grid>
+</UserControl>
