@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\SCKK.png" />
+    <None Remove="Resources\taxi.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Requests\" />
   </ItemGroup>
 
@@ -18,6 +23,15 @@
     </PackageReference>
     <PackageReference Include="MaterialDesignColors" Version="2.0.0-ci2312" />
     <PackageReference Include="MaterialDesignThemes" Version="4.0.0-ci2312" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\SCKK.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\taxi.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

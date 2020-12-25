@@ -21,7 +21,7 @@
         <Grid Background="#FF0B0711" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Image x:Name="BannerImg" Height="auto" Width="40" Margin="4,18,0,18" HorizontalAlignment="Left" Stretch="Fill" Source="/Resources/SCKK.png" />
+                    <Image x:Name="BannerImg" Height="auto" Width="40" Margin="4,10,0,10" HorizontalAlignment="Left" Stretch="Fill" Source="/Resources/SCKK.png" />
                     <TextBlock Text="S C K K" FontSize="30" Foreground="#EB3E41" VerticalAlignment="Center" Margin="12 0" FontWeight="Bold"/>
                 </StackPanel>
                 <ListView x:Name="ListViewMenu" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" Background="#FF0B0711" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
