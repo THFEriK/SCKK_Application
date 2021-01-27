@@ -48,20 +48,8 @@
                     </ListViewItem>
                     <ListViewItem Height="40">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="CarPark"/>
-                            <TextBlock Text="Telephely" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="40">
-                        <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="NotebookOutline"/>
                             <TextBlock Text="Tudás" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="40">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="FileDocumentBox"/>
-                            <TextBlock Text="Leader" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

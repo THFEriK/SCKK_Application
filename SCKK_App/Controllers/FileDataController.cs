@@ -72,7 +72,7 @@ namespace SCKK_App.Controllers
                                 output.name = row[7] + " " + row[8];
                             else if (row.Length == 15) //3 neves
                                 output.name = row[7] + " " + row[8] + " " + row[9];
-                            else if (row.Length == 15) //4 neves
+                            else if (row.Length == 16) //4 neves
                                 output.name = row[7] + " " + row[8] + " " + row[9] + " " + row[10];
 
                             output.name = output.name;

@@ -28,6 +28,10 @@ namespace SCKK_App.Views
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (DateTime.Now.ToUniversalTime() > new DateTime(2021,3,1))
+            {
+                MessageBox.Show("Frissítse a programot!");
+            }
             switch (ListViewMenu.SelectedIndex) //Menüválasztó (Oldalsáv)\\
             {
                 case 0:                         //Kezdőlap
