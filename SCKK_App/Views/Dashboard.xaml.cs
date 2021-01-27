@@ -34,8 +34,12 @@ namespace SCKK_App.Views
             }
             switch (ListViewMenu.SelectedIndex) //Menüválasztó (Oldalsáv)\\
             {
-                case 0:                         //Kezdőlap
+                case 0:                         //Felhasználó
                     GridPrincipal.Children.Clear();
+
+                    UserManager childUserManager = new UserManager();
+
+                    GridPrincipal.Children.Add(childUserManager);
 
                     break;
                 case 1:                         //Hívások

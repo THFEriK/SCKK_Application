@@ -28,28 +28,22 @@
                     <ListView.BorderBrush>
                         <SolidColorBrush Color="Black" Opacity="0"/>
                     </ListView.BorderBrush>
-                    <ListViewItem Height="40">
+                    <ListViewItem Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Home"/>
-                            <TextBlock Text="Kezdőlap" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Account"/>
+                            <TextBlock Text="Felhasználó" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="40">
+                    <ListViewItem Height="50">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="TextSubject"/>
                             <TextBlock Text="Hivások" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="40">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="InsertChart"/>
-                            <TextBlock Text="Statisztikák" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="40">
+                    <ListViewItem Height="50">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="NotebookOutline"/>
-                            <TextBlock Text="Tudás" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                            <TextBlock Text="Admin" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
@@ -59,6 +53,7 @@
             </Button>
         </Grid>
         <Grid Grid.Column="1" x:Name="GridPrincipal">
+            <TextBlock Text="v1.0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FF424242" Margin="10 5" FontWeight="Bold"/>
             <!-- Child -->
         </Grid>
     </Grid>
