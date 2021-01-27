@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="SCKK_App.Views.UserManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:SCKK_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Foreground="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <StackPanel Margin="30 0">
+                <TextBlock Text="Bejelentkezés"
+                           Margin="0 15 0 10"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           FontWeight="Bold"/>
+                <TextBox Text="Felhasználónév"
+                         Foreground="Gray"
+                         x:Name="LoginUsername"
+                         Padding="8 4"
+                         Margin="0 10" GotFocus="LoginUsername_GotFocus" LostFocus="LoginUsername_LostFocus"/>
+                <Grid>
+                    <TextBlock 
+                        Text="Jelszó"
+                        x:Name="LoginPasswordText"
+                        Margin="10 15"
+                        Foreground="gray"/>
+                    <PasswordBox                             
+                         x:Name="LoginPassword"
+                         Padding="8 4"
+                         Margin="0 10" GotFocus="LoginPassword_GotFocus" LostFocus="LoginPassword_LostFocus"/>
+                </Grid>
+                <Button x:Name="Login"
+                        Margin="0 10">
+                    <TextBox Text="B e l é p é s" FontSize="12" BorderThickness="0,0,0,0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel Margin="30 0">
+                <TextBlock Text="Regisztráció"
+                           Padding="8 4"
+                           Margin="0 15 0 10"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           FontWeight="Bold"/>
+                <TextBox Text="Felhasználónév"
+                         Foreground="Gray"
+                         x:Name="RegisterUsername"
+                         Padding="8 4"
+                         Margin="0 10" GotFocus="RegisterUsername_GotFocus" LostFocus="RegisterUsername_LostFocus"/>
+                <Grid>
+                    <TextBlock 
+                            Text="Jelszó"
+                            x:Name="RegisterPasswordText"
+                            Margin="10 15"
+                            Foreground="gray"/>
+                    <PasswordBox
+                             x:Name="RegisterPassword"
+                             Padding="8 4"
+                             Margin="0 10" GotFocus="RegisterPassword_GotFocus" LostFocus="RegisterPassword_LostFocus"/>
+                </Grid>
+                <Grid>
+                    <TextBlock 
+                            Text="Jelszó ismét"
+                            x:Name="RegisterPassword2Text"
+                            Margin="10 15"
+                            Foreground="gray"/>
+                    <PasswordBox
+                             x:Name="RegisterPassword2"
+                             Padding="8 4"
+                             Margin="0 10" GotFocus="RegisterPassword2_GotFocus" LostFocus="RegisterPassword2_LostFocus"/>
+                </Grid>
+                <TextBox Text="Regisztrációs kulcs"
+                         Foreground="Gray"
+                         x:Name="RegisterKey"
+                         Padding="8 4"
+                         Margin="0 10" GotFocus="RegisterKey_GotFocus" LostFocus="RegisterKey_LostFocus"/>
+                <Button x:Name="Register"
+                        Margin="0 10">
+                    <TextBox Text="R e g i s z t r á l á s" FontSize="12" BorderThickness="0,0,0,0"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
