@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SCKK_App.Requests;
 
 namespace SCKK_App.Views
 {
@@ -18,6 +19,8 @@ namespace SCKK_App.Views
     /// </summary>
     public partial class UserManager : UserControl
     {
+        private readonly AuthenticationRequest request = new AuthenticationRequest();
+
         public UserManager()
         {
             InitializeComponent();
@@ -120,6 +123,64 @@ namespace SCKK_App.Views
                 RegisterKey.Text = "Regisztrációs kulcs";
                 RegisterKey.Foreground = new SolidColorBrush(Colors.Gray);
             }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            request.Login(LoginUsername.Text, LoginPassword.Password);
+        }
+
+        private void LoginUsername_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Login(LoginUsername.Text, LoginPassword.Password);
+            }
+        }
+
+        private void LoginPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Login(LoginUsername.Text, LoginPassword.Password);
+            }
+        }
+
+        private void RegisterUsername_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Registration(RegisterKey.Text, RegisterUsername.Text, RegisterPassword.Password, RegisterPassword2.Password);
+            }
+        }
+
+        private void RegisterPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Registration(RegisterKey.Text, RegisterUsername.Text, RegisterPassword.Password, RegisterPassword2.Password);
+            }
+        }
+
+        private void RegisterPassword2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Registration(RegisterKey.Text, RegisterUsername.Text, RegisterPassword.Password, RegisterPassword2.Password);
+            }
+        }
+
+        private void RegisterKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                request.Registration(RegisterKey.Text, RegisterUsername.Text, RegisterPassword.Password, RegisterPassword2.Password);
+            }
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            request.Registration(RegisterKey.Text, RegisterUsername.Text, RegisterPassword.Password, RegisterPassword2.Password);
         }
     }
 }
