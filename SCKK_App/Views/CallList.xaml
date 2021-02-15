@@ -121,11 +121,7 @@
         <!-- Row 2 -->
         <Button x:Name="GrouperBtn" Grid.Row="1" Margin="40 0" MaxWidth="260" Click="Grouping_Click" Content="Csoportosítás"/>
 
-        <ComboBox  x:Name="RandomCb" Grid.Row="1" Grid.Column="1" Margin="40 0" MaxWidth="260">
-            <ComboBoxItem Content="X"/>
-            <ComboBoxItem Content="Y"/>
-            <ComboBoxItem Content="Z"/>
-        </ComboBox>
+        <Button x:Name="UploadBtn" Grid.Row="1" Grid.Column="1" Margin="40 0" MaxWidth="260" Content="Feltöltés"/>
 
     </Grid>
 </UserControl>

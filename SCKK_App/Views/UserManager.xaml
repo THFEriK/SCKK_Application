@@ -37,8 +37,9 @@
                          Margin="0 10" GotFocus="LoginPassword_GotFocus" LostFocus="LoginPassword_LostFocus" KeyUp="LoginPassword_KeyUp"/>
                 </Grid>
                 <Button x:Name="Login"
-                        Margin="0 10" Click="Login_Click">
-                    <TextBox Text="B e l é p é s" FontSize="12" BorderThickness="0,0,0,0"/>
+                        Margin="0 10"
+                        Click="Login_Click">
+                    <TextBlock Text="B e l é p é s" FontSize="12"/>
                 </Button>
             </StackPanel>
         </Grid>
@@ -84,7 +85,7 @@
                          Margin="0 10" GotFocus="RegisterKey_GotFocus" LostFocus="RegisterKey_LostFocus" KeyUp="RegisterKey_KeyUp"/>
                 <Button x:Name="Register"
                         Margin="0 10" Click="Register_Click">
-                    <TextBox Text="R e g i s z t r á l á s" FontSize="12" BorderThickness="0,0,0,0"/>
+                    <TextBlock Text="R e g i s z t r á l á s" FontSize="12"/>
                 </Button>
             </StackPanel>
         </Grid>

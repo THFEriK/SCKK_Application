@@ -127,14 +127,14 @@ namespace SCKK_App.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            request.Login(LoginUsername.Text, LoginPassword.Password);
+            LoginUser();
         }
 
         private void LoginUsername_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                request.Login(LoginUsername.Text, LoginPassword.Password);
+                LoginUser();
             }
         }
 
@@ -142,8 +142,17 @@ namespace SCKK_App.Views
         {
             if (e.Key == Key.Enter)
             {
-                request.Login(LoginUsername.Text, LoginPassword.Password);
+                LoginUser();
             }
+        }
+
+        private void LoginUser()
+        {
+            string[] s = request.Login(LoginUsername.Text, LoginPassword.Password);
+            Dashboard.sessionCode = s[1];
+            Dashboard.rank = int.Parse(s[2]);
+
+            MessageBox.Show(Dashboard.sessionCode + ", " + Dashboard.rank);
         }
 
         private void RegisterUsername_KeyUp(object sender, KeyEventArgs e)

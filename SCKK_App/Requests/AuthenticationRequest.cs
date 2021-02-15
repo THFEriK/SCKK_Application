@@ -5,13 +5,13 @@ namespace SCKK_App.Requests
 {
     public class AuthenticationRequest : BaseRequest
     {
-        public string Login(string name, string pwd)
+        public string[] Login(string name, string pwd)
         {
             string result = GetPost("http://localhost/sckk-php/controllers/authenticate.php", "action", "loginUser", "username", name, "password", GetHash(pwd));
             if (result.StartsWith("OK"))
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                return result.Split(':')[1];
+                return result.Split(':');
             }
             return null;
         }

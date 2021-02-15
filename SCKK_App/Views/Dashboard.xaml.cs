@@ -15,16 +15,25 @@ namespace SCKK_App.Views
         public Dashboard()
         {
             InitializeComponent();
+
+            CallMenu childCallMenu = new CallMenu();
+            GridPrincipal.Children.Add(childCallMenu);
         }
+
+        public static string sessionCode = "";
+        public static int rank = 1;
+
 
         private bool IsMenuMinimized = true;
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*
             if (DateTime.Now.ToUniversalTime() > new DateTime(2021,3,1))
             {
                 MessageBox.Show("Frissítse a programot!");
             }
+            */
             switch (ListViewMenu.SelectedIndex) //Menüválasztó (Oldalsáv)\\
             {
                 case 0:                         //Felhasználó
@@ -38,9 +47,9 @@ namespace SCKK_App.Views
                 case 1:                         //Hívások
                     GridPrincipal.Children.Clear();
 
-                    CallList childCallList = new CallList();
+                    CallMenu childCallMenu = new CallMenu();
 
-                    GridPrincipal.Children.Add(childCallList);
+                    GridPrincipal.Children.Add(childCallMenu);
                     break;
                 case 2:                         //Jogok
                     GridPrincipal.Children.Clear();
