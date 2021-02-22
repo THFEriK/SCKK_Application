@@ -77,6 +77,11 @@ namespace SCKK_App.Requests
             Errors.Add("BAD_LOGIN", "Rossz bejelentkezési adatok!");
             Errors.Add("PASSWORDS_NOT_MATCH", "A két jelszó nem egyezik!");
             Errors.Add("LOTS_OF_BAD_LOGINS", "Túl sokszor próbáltad! Próbáld újra később!");
+            Errors.Add("MYSQL_ERROR_307", "Adatbázis hiba! Keresd fel a rendszergazdát! Hibakód: 307");
+            Errors.Add("MYSQL_ERROR_308", "Adatbázis hiba! Keresd fel a rendszergazdát! Hibakód: 308");
+            Errors.Add("MYSQL_ERROR_309", "Adatbázis hiba! Keresd fel a rendszergazdát! Hibakód: 309");
+            Errors.Add("UNAUTHENTICATED", "Nem vagy bejelentkezve!");
+            Errors.Add("REGEX_NOT_MATCH", "A szöveg tartalmaz nem megfelelő karaktereket!");
 
             if (!error.StartsWith("ERROR"))
             {

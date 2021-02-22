@@ -20,11 +20,22 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="DataGridCell">
-            <Style.Setters>
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-            </Style.Setters>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource {x:Type DataGridCell}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Border x:Name="border"
+			                    Background="Transparent"
+			                    BorderBrush="Transparent"
+			                    BorderThickness="1"
+			                    SnapsToDevicePixels="True"
+                                HorizontalAlignment="Center">
+
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Expander">
             <Style.Setters>
@@ -86,10 +97,10 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
                                         <Expander IsExpanded="False" Background="#34304A" BorderBrush="#4C456B" Foreground="#FFEEEEEE" BorderThickness="0,0,0,1" >
-                                            <Expander.Header>
+                                            <Expander.Header >
                                                 <DockPanel Margin="0">
-                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=ItemCount, AsyncState=true}" Width="25" Margin="0,0,10,0" HorizontalAlignment="Left" TextAlignment="Right"/>
-                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Name, AsyncState=true}" Width="200" HorizontalAlignment="Left"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=ItemCount}" Width="25" Margin="0,0,10,0" HorizontalAlignment="Left" TextAlignment="Right"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Name}" Width="200" HorizontalAlignment="Left"/>
                                                 </DockPanel>
                                             </Expander.Header>
                                             <Expander.Content>
@@ -108,10 +119,10 @@
                 <BindingGroup/>
             </DataGrid.ItemBindingGroup>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Név" Binding="{Binding name, Mode=OneTime, AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Azonosító" Binding="{Binding identifier, Mode=OneTime, AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Idő" Binding="{Binding time, StringFormat='HH:mm', Mode=OneTime, AsyncState=true}" Width="*"/>
-                <DataGridTextColumn Header="Érkezés" Binding="{Binding callId.time, Mode=OneTime, StringFormat='HH:mm', AsyncState=true}" Width="*"/>
+                <DataGridTextColumn Header="Név" Binding="{Binding name, Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Azonosító" Binding="{Binding identifier, Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Idő" Binding="{Binding time, StringFormat='HH:mm', Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Érkezés" Binding="{Binding callTime, Mode=OneTime, StringFormat='HH:mm'}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BarOpenerBtn" VerticalAlignment="Bottom" Grid.ColumnSpan="2" MaxWidth="50" Height="20" Background="Transparent" BorderBrush="#282438" Click="BarOpener_Click">
@@ -121,7 +132,7 @@
         <!-- Row 2 -->
         <Button x:Name="GrouperBtn" Grid.Row="1" Margin="40 0" MaxWidth="260" Click="Grouping_Click" Content="Csoportosítás"/>
 
-        <Button x:Name="UploadBtn" Grid.Row="1" Grid.Column="1" Margin="40 0" MaxWidth="260" Content="Feltöltés"/>
+        <Button x:Name="UploadBtn" Grid.Row="1" Grid.Column="1" Margin="40 0" Click="UploadBtn_Click" MaxWidth="260" Content="Feltöltés"/>
 
     </Grid>
 </UserControl>

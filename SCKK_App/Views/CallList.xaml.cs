@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using SCKK_App.Controllers;
+using SCKK_App.Requests;
 using SCKK_App.Models;
 
 namespace SCKK_App.Views
@@ -25,7 +26,7 @@ namespace SCKK_App.Views
     {
         private bool sidebarOpen = false;
         private bool isGrouped = false;
-
+        private List<ResultModel> data;
 
         public CallList()
         {
@@ -33,7 +34,8 @@ namespace SCKK_App.Views
             reading.FileRead();
             reading.FileCompletion();
             InitializeComponent();
-            DataGridStatistic.ItemsSource = reading.results;
+            data = reading.results;
+            DataGridStatistic.ItemsSource = data;
         }
 
         private void BarOpener_Click(object sender, RoutedEventArgs e)
@@ -76,6 +78,12 @@ namespace SCKK_App.Views
 
                 isGrouped = true;
             }
+        }
+
+        private void UploadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var UploadWindow = new Upload(data);
+            UploadWindow.Show();
         }
     }
 }

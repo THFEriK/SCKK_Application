@@ -149,8 +149,11 @@ namespace SCKK_App.Views
         private void LoginUser()
         {
             string[] s = request.Login(LoginUsername.Text, LoginPassword.Password);
-            Dashboard.sessionCode = s[1];
-            Dashboard.rank = int.Parse(s[2]);
+            if (!(s is null))
+            {
+                Dashboard.sessionCode = s[1];
+                Dashboard.rank = int.Parse(s[2]);
+            }
 
             MessageBox.Show(Dashboard.sessionCode + ", " + Dashboard.rank);
         }

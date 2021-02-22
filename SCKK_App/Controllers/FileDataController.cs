@@ -153,7 +153,7 @@ namespace SCKK_App.Controllers
                 {
                     if (calls[i].identifier == result.identifier && calls[i].time.AddMinutes(20) > result.time)
                     {
-                        result.callId = calls[i];
+                        result.callTime = calls[i].time;
                     }
                 }
             }
@@ -177,8 +177,8 @@ namespace SCKK_App.Controllers
 
             //   1 perces hívások   \\
             foreach (var result in results)
-                if (result.name == "Lemondott" && result.callId != null) //1 perces
-                    if (result.time < result.callId.time.AddMinutes(1))
+                if (result.name == "Lemondott" && result.callTime != null) //1 perces
+                    if (result.time < result.callTime.AddMinutes(1))
                         result.name = "1-perces";
 
             //   Hiányzó hívások   \\
