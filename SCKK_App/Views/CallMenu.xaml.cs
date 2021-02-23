@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SCKK_App.Models;
+using SCKK_App.Requests;
 
 namespace SCKK_App.Views
 {
@@ -25,13 +27,19 @@ namespace SCKK_App.Views
 
         private void LocalFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            CallList childCallList = new CallList();
+            var childCallList = new CallList();
             this.Content = childCallList;
         }
 
         private void ServerFileBtn_Click(object sender, RoutedEventArgs e)
         {
+            List<TableModel> result = new DownloadRequest().DownloadTableList(Dashboard.sessionCode);
 
+            if (!(result is null))
+            {
+                var childDatabaseLogList = new DatabaseLogList(new DownloadRequest().DownloadTableList(Dashboard.sessionCode));
+                this.Content = childDatabaseLogList;
+            }
         }
     }
 }

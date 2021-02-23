@@ -35,10 +35,29 @@ namespace SCKK_App.Views
             {
                 var request = new UploadRequest();
                 request.Upload(data, Dashboard.sessionCode, FileNameTb.Text);
+                this.Close();
             }
             else
             {
                 MessageBox.Show("A fájl neve nem tartalmazhat speciális karaktereket!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void FileNameTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (FileNameTb.Text == "Fájlnév")
+            {
+                FileNameTb.Text = "";
+                FileNameTb.Foreground = new SolidColorBrush(Colors.White);
+            }
+        }
+
+        private void FileNameTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (FileNameTb.Text == "")
+            {
+                FileNameTb.Text = "Fájlnév";
+                FileNameTb.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
     }

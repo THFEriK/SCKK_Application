@@ -154,8 +154,6 @@ namespace SCKK_App.Views
                 Dashboard.sessionCode = s[1];
                 Dashboard.rank = int.Parse(s[2]);
             }
-
-            MessageBox.Show(Dashboard.sessionCode + ", " + Dashboard.rank);
         }
 
         private void RegisterUsername_KeyUp(object sender, KeyEventArgs e)

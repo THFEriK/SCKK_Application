@@ -38,6 +38,12 @@ namespace SCKK_App.Views
             DataGridStatistic.ItemsSource = data;
         }
 
+        public CallList(List<ResultModel> log)
+        {
+            InitializeComponent();
+            DataGridStatistic.ItemsSource = log;
+        }
+
         private void BarOpener_Click(object sender, RoutedEventArgs e)
         {
             GridLengthConverter gridLengthConverter = new GridLengthConverter();

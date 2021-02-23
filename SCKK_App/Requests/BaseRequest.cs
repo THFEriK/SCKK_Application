@@ -18,7 +18,6 @@ namespace SCKK_App.Requests
         {
             var result = string.Empty;
             var data = string.Empty;
-            var ascii = new ASCIIEncoding();
 
             if (postdata.Length % 2 != 0)
             {
@@ -32,7 +31,7 @@ namespace SCKK_App.Requests
             }
             data.Remove(0, 1);
 
-            byte[] bytesarr = Encoding.ASCII.GetBytes(data);
+            byte[] bytesarr = Encoding.UTF8.GetBytes(data);
             try
             {
                 WebRequest request = WebRequest.Create(Url);
