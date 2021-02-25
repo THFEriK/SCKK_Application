@@ -38,26 +38,20 @@ namespace SCKK_App.Views
             {
                 case 0:                         //Felhasználó
                     GridPrincipal.Children.Clear();
-
-                    UserManager childUserManager = new UserManager();
-
+                    var childUserManager = new UserManager();
                     GridPrincipal.Children.Add(childUserManager);
 
+                    ListViewMenu.SelectedIndex = -1;
                     break;
+
                 case 1:                         //Hívások
                     GridPrincipal.Children.Clear();
-
-                    CallMenu childCallMenu = new CallMenu();
-
+                    var childCallMenu = new CallMenu();
                     GridPrincipal.Children.Add(childCallMenu);
-                    break;
-                case 2:                         //Jogok
-                    GridPrincipal.Children.Clear();
 
-                    //UserManager childUserManager = new UserManager();
-
-                    //GridPrincipal.Children.Add(childUserManager);
+                    ListViewMenu.SelectedIndex = -1;
                     break;
+
                 default:
                     break;
             }

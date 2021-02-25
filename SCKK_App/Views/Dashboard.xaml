@@ -40,12 +40,6 @@
                             <TextBlock Text="Hivások" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="50">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="NotebookOutline"/>
-                            <TextBlock Text="Admin" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
-                        </StackPanel>
-                    </ListViewItem>
                 </ListView>
             </StackPanel>
             <Button VerticalAlignment="Bottom" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="DrawerBtn_Click">

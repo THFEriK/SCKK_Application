@@ -21,7 +21,7 @@ namespace SCKK_App.Requests
 
             if (postdata.Length % 2 != 0)
             {
-                MessageBox.Show("Parameters must be even , \"user\" , \"value\" , ... etc", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Hiba a paraméterlistában!", "Hiba!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return string.Empty;
             }
 

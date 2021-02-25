@@ -11,17 +11,11 @@ namespace SCKK_App.Requests
 {
     class UploadRequest : BaseRequest
     {
-        public void Upload(List<ResultModel> data, string sessionCode, string filename)
+        public void Upload(List<ResultModel> data, string sessionCode, string tablename)
         {
             string stringjson = JsonConvert.SerializeObject(data);
 
-            if (stringjson.Length > 500000)
-                MessageBox.Show("A feltöltendő fájl mérete túl nagy!");
-
-            if (stringjson.Length < 100)
-                MessageBox.Show("A feltöltendő fájl mérete túl alacsony!");
-
-            string result = GetPost("http://localhost/sckk-php/controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "filename", filename);
+            string result = GetPost("http://localhost/sckk-php/controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "tablename", tablename);
             if (result.StartsWith("OK"))
             {
                 MessageBox.Show("Sikeres feltöltés!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
