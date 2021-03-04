@@ -22,7 +22,7 @@ namespace SCKK_App.Views
 
         private void UploadBtn_Click(object sender, RoutedEventArgs e)
         {
-            var rx = new Regex("^[A-z0-9]+$");
+            var rx = new Regex("^[A-z0-9-]+$");
             if (rx.IsMatch(FileNameTb.Text))
             {
                 var request = new UploadRequest();

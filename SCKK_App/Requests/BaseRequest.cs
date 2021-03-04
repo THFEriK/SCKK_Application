@@ -18,8 +18,8 @@ namespace SCKK_App.Requests
         {
             var result = string.Empty;
             var data = string.Empty;
-            var host = "http://87.229.71.17/";
-            //var host = "http://127.0.0.1/";
+            //var host = "http://87.229.71.17/";
+            var host = "http://127.0.0.1/";
             host += Url;
 
             if (postdata.Length % 2 != 0)
@@ -83,7 +83,7 @@ namespace SCKK_App.Requests
             Errors.Add("MYSQL_ERROR_308", "Adatbázis hiba! Keresd fel a rendszergazdát! Hibakód: 308");
             Errors.Add("MYSQL_ERROR_309", "Adatbázis hiba! Keresd fel a rendszergazdát! Hibakód: 309");
             Errors.Add("UNAUTHENTICATED", "Nem vagy bejelentkezve!");
-            Errors.Add("REGEX_NOT_MATCH", "A szöveg tartalmaz nem megfelelő karaktereket!");
+            Errors.Add("REGEX_NOT_MATCH", "A szöveg nem megfelelő karaktereket tartalmaz!");
             Errors.Add("NO_PERMISSION", "Nincs jogosúltságod ehez a művelethez!");
             Errors.Add("NOT_OWN", "Ez nem a te tulajdonod! :P");
             Errors.Add("UPLOAD_LIMIT_REACHED", "Elérted a feltöltési limited!");

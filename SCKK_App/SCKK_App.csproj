@@ -8,6 +8,7 @@
     <ApplicationIcon>resources/taxi.ico</ApplicationIcon>
     <StartupObject>SCKK_App.App</StartupObject>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
