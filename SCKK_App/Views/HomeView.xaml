@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="SCKK_App.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SCKK_App.Views"
+             mc:Ignorable="d"
+             Foreground="White"
+             Background="#FF201E2D"
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2">
+            <TextBlock Text="F ő o l d a l"
+                   HorizontalAlignment="Center"
+                   FontSize="28"
+                   Margin="0 15 0 14"
+                   FontWeight="Bold"/>
+            <Line X1="1" Stroke="MediumPurple" Stretch="Fill" Margin="15 0"/>
+        </StackPanel>
+        <!-- 2. Row -->
+        <StackPanel x:Name="LoginSP" Grid.Row="1" Grid.Column="0">
+            <GroupBox Header="  Nem vagy bejelentkezve!"
+                      FontSize="20"
+                      FontWeight="Bold"
+                      Margin="15">
+                <Button x:Name="LoginBtn"
+                        Content="B e j e l e n t k e z é s"
+                        Margin="15 0"
+                        MaxWidth="275" Click="LoginBtn_Click"/>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel x:Name="StatsSP" Grid.Row="1" Grid.Column="0" Visibility="Collapsed">
+            <GroupBox x:Name="StatsGB"
+                      FontSize="20"
+                      FontWeight="Bold"
+                      Margin="15">
+                <ListBox x:Name="StatsLB"
+                         Foreground="White"
+                         FontSize="18"
+                         FontFamily="Courier New"
+                         FontWeight="Regular">
+                    
+                </ListBox>
+            </GroupBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <GroupBox Header="  K ö z l e m é n y"
+                      FontSize="20"
+                      FontWeight="Bold"
+                      Margin="15">
+                <TextBlock x:Name="MessageTb"
+                           Text="Betöltési hiba..."
+                           TextWrapping="Wrap"
+                           FontSize="16"
+                           FontWeight="Normal"
+                           TextAlignment="Justify"
+                           Margin="5"/>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

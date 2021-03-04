@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SCKK_App.Views.DatabaseLogList"
+﻿<UserControl x:Class="SCKK_App.Views.LogListView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -16,6 +16,14 @@
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="True">
                     <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#3A3552"/>
+                    <Setter Property="BorderBrush" Value="#3A3552"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -45,7 +53,7 @@
                         <DataTemplate>
                             <Button x:Name="DownloadBtn"
                                     Click="DownloadBtn_Click">
-                                <materialDesign:PackIcon Height="20" VerticalAlignment="Center" Kind="Download"/>
+                                <materialDesign:PackIcon Height="20" VerticalAlignment="Center" Kind="Eye"/>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

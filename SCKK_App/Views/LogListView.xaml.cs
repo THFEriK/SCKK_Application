@@ -18,9 +18,9 @@ namespace SCKK_App.Views
     /// <summary>
     /// Interaction logic for DatabaseLogList.xaml
     /// </summary>
-    public partial class DatabaseLogList : UserControl
+    public partial class LogListView : UserControl
     {
-        public DatabaseLogList(List<TableModel> tables)
+        public LogListView(List<TableModel> tables)
         {
             InitializeComponent();
             DataGridList.ItemsSource = tables;
@@ -29,7 +29,7 @@ namespace SCKK_App.Views
         private void DownloadBtn_Click(object sender, RoutedEventArgs e)
         {
             var obj = ((FrameworkElement)sender).DataContext as TableModel;
-            var childCallList = new CallList(new DownloadRequest().DownloadLog(Dashboard.sessionCode, obj.title));
+            var childCallList = new CallListView(new DownloadRequest().DownloadLog(Dashboard.sessionCode, obj.title));
             this.Content = childCallList;
 
         }

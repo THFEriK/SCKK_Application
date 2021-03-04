@@ -22,26 +22,17 @@ namespace SCKK_App.Views
     /// <summary>
     /// Interaction logic for CallList.xaml
     /// </summary>
-    public partial class CallList
+    public partial class CallListView
     {
         private bool sidebarOpen = false;
         private bool isGrouped = false;
-        private List<ResultModel> data;
+        List<ResultModel> log;
 
-        public CallList()
-        {
-            FileDataController reading = new FileDataController();
-            reading.FileRead();
-            reading.FileCompletion();
-            InitializeComponent();
-            data = reading.results;
-            DataGridStatistic.ItemsSource = data;
-        }
-
-        public CallList(List<ResultModel> log)
+        public CallListView(List<ResultModel> log)
         {
             InitializeComponent();
             DataGridStatistic.ItemsSource = log;
+            this.log = log;
         }
 
         private void BarOpener_Click(object sender, RoutedEventArgs e)
@@ -88,7 +79,7 @@ namespace SCKK_App.Views
 
         private void UploadBtn_Click(object sender, RoutedEventArgs e)
         {
-            var UploadWindow = new Upload(data);
+            var UploadWindow = new UploadView(log);
             UploadWindow.Show();
         }
     }

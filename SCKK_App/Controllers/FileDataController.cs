@@ -28,7 +28,6 @@ namespace SCKK_App.Controllers
                     Filter(file);
                 }
             }
-            else MessageBox.Show("Hiba");
         }
 
         private void Filter(string file)

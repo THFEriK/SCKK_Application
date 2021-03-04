@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="SCKK_App.Views.UserList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:SCKK_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Foreground="White">
+    <UserControl.Resources>
+        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="22"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#3A3552"/>
+                    <Setter Property="BorderBrush" Value="#3A3552"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid x:Name="DataGridList" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  HorizontalContentAlignment="Center" 
+                  FontWeight="DemiBold" 
+                  FontSize="13px" 
+                  TextElement.FontSize="16"
+                  MinColumnWidth="0" 
+                  Background="#FF181622"
+                  GridLinesVisibility="None"
+                  BorderBrush="White"
+                  Foreground="#DDFFFFFF"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  EnableColumnVirtualization="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding username, Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Rang" Binding="{Binding rank, Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Részleg" Binding="{Binding team, Mode=OneTime}" Width="*"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="EditBtn" Click="EditBtn_Click">
+                                <materialDesign:PackIcon Height="20" VerticalAlignment="Center" Kind="Edit"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

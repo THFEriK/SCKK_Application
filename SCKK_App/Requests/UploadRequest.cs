@@ -15,11 +15,7 @@ namespace SCKK_App.Requests
         {
             string stringjson = JsonConvert.SerializeObject(data);
 
-            string result = GetPost("http://localhost/sckk-php/controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "tablename", tablename);
-            if (result.StartsWith("OK"))
-            {
-                MessageBox.Show("Sikeres feltöltés!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            string result = GetPost("controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "tablename", tablename);
         }
     }
 }

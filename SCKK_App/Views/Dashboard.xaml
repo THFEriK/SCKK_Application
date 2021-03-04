@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:SCKK_App.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="SCKK LogFilter"
+        Title="SCKK App"
         Background="#FF201E2D"
         Height="500"
         Width="800"
         MinWidth="700"
         MinHeight="470"
-        Closing="Window_Closing">
+        Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="sidebar" Width="48"/>
@@ -30,14 +30,32 @@
                     </ListView.BorderBrush>
                     <ListViewItem Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Account"/>
-                            <TextBlock Text="Felhasználó" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Home"/>
+                            <TextBlock Text="Főoldal" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="50">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="TextSubject"/>
-                            <TextBlock Text="Hivások" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="FileDocument"/>
+                            <TextBlock Text="Beolvasás" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="DatabaseLv" Height="50" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Database"/>
+                            <TextBlock Text="Adatbázis" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="UsersLv" Height="50" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Accounts"/>
+                            <TextBlock Text="Felhasználók" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="RegKeysLv" Height="50" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Width="30" Height="30" VerticalAlignment="Center" Kind="Key"/>
+                            <TextBlock Text="Kulcsok" FontSize="18" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

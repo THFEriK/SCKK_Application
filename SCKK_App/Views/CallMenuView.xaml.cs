@@ -18,17 +18,17 @@ namespace SCKK_App.Views
     /// <summary>
     /// Interaction logic for CallMenu.xaml
     /// </summary>
-    public partial class CallMenu : UserControl
+    public partial class CallMenuView : UserControl
     {
-        public CallMenu()
+        public CallMenuView()
         {
             InitializeComponent();
         }
 
         private void LocalFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            var childCallList = new CallList();
-            this.Content = childCallList;
+            //var childCallList = new CallListView();
+            //this.Content = childCallList;
         }
 
         private void ServerFileBtn_Click(object sender, RoutedEventArgs e)
@@ -37,7 +37,7 @@ namespace SCKK_App.Views
 
             if (!(result is null))
             {
-                var childDatabaseLogList = new DatabaseLogList(new DownloadRequest().DownloadTableList(Dashboard.sessionCode));
+                var childDatabaseLogList = new LogListView(new DownloadRequest().DownloadTableList(Dashboard.sessionCode));
                 this.Content = childDatabaseLogList;
             }
         }

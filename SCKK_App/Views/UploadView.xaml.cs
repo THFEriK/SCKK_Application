@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Text.RegularExpressions;
-using SCKK_App.Models;
+﻿using SCKK_App.Models;
 using SCKK_App.Requests;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Media;
 
 namespace SCKK_App.Views
 {
     /// <summary>
     /// Interaction logic for Upload.xaml
     /// </summary>
-    public partial class Upload : Window
+    public partial class UploadView : Window
     {
         private List<ResultModel> data;
 
-        public Upload(List<ResultModel> data)
+        public UploadView(List<ResultModel> data)
         {
             this.data = data;
             InitializeComponent();
@@ -30,7 +22,7 @@ namespace SCKK_App.Views
 
         private void UploadBtn_Click(object sender, RoutedEventArgs e)
         {
-            var rx = new Regex("^[a-z0-9]+$");
+            var rx = new Regex("^[A-z0-9]+$");
             if (rx.IsMatch(FileNameTb.Text))
             {
                 var request = new UploadRequest();
@@ -47,14 +39,14 @@ namespace SCKK_App.Views
         {
             if (FileNameTb.Text == "Fájlnév")
             {
-                FileNameTb.Text = "";
+                FileNameTb.Text = string.Empty;
                 FileNameTb.Foreground = new SolidColorBrush(Colors.White);
             }
         }
 
         private void FileNameTb_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (FileNameTb.Text == "")
+            if (FileNameTb.Text == string.Empty)
             {
                 FileNameTb.Text = "Fájlnév";
                 FileNameTb.Foreground = new SolidColorBrush(Colors.Gray);

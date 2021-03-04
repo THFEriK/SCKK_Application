@@ -11,7 +11,7 @@ namespace SCKK_App.Requests
     {
         public List<TableModel> DownloadTableList(string sessionCode)
         {
-            string result = GetPost("http://localhost/sckk-php/controllers/download.php", "action", "downloadTableList", "sessionCode", sessionCode);
+            string result = GetPost("controllers/download.php", "action", "downloadTableList", "sessionCode", sessionCode);
             if (result.StartsWith("OK"))
             {
                 return JsonConvert.DeserializeObject<List<TableModel>>(result.Split('|')[1]);
@@ -21,12 +21,12 @@ namespace SCKK_App.Requests
 
         public void DeleteTable(string sessionCode, string tablename)
         {
-            string result = GetPost("http://localhost/sckk-php/controllers/download.php", "action", "deleteTable", "sessionCode", sessionCode, "tablename", tablename);
+            string result = GetPost("controllers/download.php", "action", "deleteTable", "sessionCode", sessionCode, "tablename", tablename);
         }
 
         public List<ResultModel> DownloadLog(string sessionCode, string tablename)
         {
-            string result = GetPost("http://localhost/sckk-php/controllers/download.php", "action", "downloadLog", "sessionCode", sessionCode, "tablename", tablename);
+            string result = GetPost("controllers/download.php", "action", "downloadLog", "sessionCode", sessionCode, "tablename", tablename);
             if (result.StartsWith("OK"))
             {
                 return JsonConvert.DeserializeObject<List<ResultModel>>(result.Split('|')[1]);
