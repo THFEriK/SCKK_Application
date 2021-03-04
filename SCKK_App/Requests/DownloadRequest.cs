@@ -18,7 +18,7 @@ namespace SCKK_App.Requests
 
         public void DeleteTable(string sessionCode, string tablename)
         {
-            string result = GetPost("controllers/download.php", "action", "deleteTable", "sessionCode", sessionCode, "tablename", tablename);
+            GetPost("controllers/download.php", "action", "deleteTable", "sessionCode", sessionCode, "tablename", tablename);
         }
 
         public List<ResultModel> DownloadLog(string sessionCode, string tablename)

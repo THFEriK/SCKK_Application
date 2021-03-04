@@ -10,7 +10,7 @@ namespace SCKK_App.Requests
         {
             string stringjson = JsonConvert.SerializeObject(data);
 
-            string result = GetPost("controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "tablename", tablename);
+            GetPost("controllers/upload.php", "sessionCode", sessionCode, "data", stringjson, "tablename", tablename);
         }
     }
 }

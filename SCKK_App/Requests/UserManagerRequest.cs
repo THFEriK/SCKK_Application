@@ -38,7 +38,7 @@ namespace SCKK_App.Requests
 
         public void SetUser(string sessionCode, string userID, string rankID, string groupID)
         {
-            string result = GetPost("controllers/usermanager.php", "action", "setUser", "sessionCode", sessionCode, "userID", userID, "rankID", rankID, "groupID", groupID);
+            GetPost("controllers/usermanager.php", "action", "setUser", "sessionCode", sessionCode, "userID", userID, "rankID", rankID, "groupID", groupID);
         }
     }
 }

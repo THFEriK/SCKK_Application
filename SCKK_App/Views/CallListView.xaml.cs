@@ -14,7 +14,7 @@ namespace SCKK_App.Views
     {
         private bool sidebarOpen = false;
         private bool isGrouped = false;
-        List<ResultModel> log;
+        readonly List<ResultModel> log;
 
         public CallListView(List<ResultModel> log)
         {
