@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Web;
 using System.IO;
-using System.Collections.Specialized;
+using System.Net;
 using System.Security.Cryptography;
+using System.Text;
+using System.Windows;
 
 namespace SCKK_App.Requests
 {

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MaterialDesignThemes.Wpf;
+using SCKK_App.Controllers;
+using SCKK_App.Requests;
+using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.IO;
-using SCKK_App.Models;
-using SCKK_App.Requests;
-using SCKK_App.Controllers;
-using MaterialDesignThemes.Wpf;
 
 namespace SCKK_App.Views
 {

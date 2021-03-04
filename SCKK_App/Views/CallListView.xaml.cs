@@ -1,21 +1,9 @@
 ﻿using MaterialDesignThemes.Wpf;
-using System;
+using SCKK_App.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Runtime.CompilerServices;
-using SCKK_App.Controllers;
-using SCKK_App.Requests;
-using SCKK_App.Models;
 
 namespace SCKK_App.Views
 {

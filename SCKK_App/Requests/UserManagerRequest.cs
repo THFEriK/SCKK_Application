@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using SCKK_App.Models;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Text;
 
 namespace SCKK_App.Requests
 {

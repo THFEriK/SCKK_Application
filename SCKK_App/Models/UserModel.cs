@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SCKK_App.Models
+﻿namespace SCKK_App.Models
 {
     public class UserModel
     {
