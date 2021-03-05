@@ -26,7 +26,7 @@ namespace SCKK_App.Views
                 sr.Close();
                 fs.Close();
 
-                rank = int.Parse(new AuthenticationRequest().AutoLogin(sessionCode));
+                int.TryParse(new AuthenticationRequest().AutoLogin(sessionCode), out rank);
                 if (rank is 0)
                 {
                     sessionCode = String.Empty;

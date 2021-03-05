@@ -3,6 +3,7 @@ using SCKK_App.Requests;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SCKK_App.Views
 {
@@ -34,6 +35,13 @@ namespace SCKK_App.Views
                 new DownloadRequest().DeleteTable(Dashboard.sessionCode, obj.title);
                 DataGridList.ItemsSource = new DownloadRequest().DownloadTableList(Dashboard.sessionCode);
             }
+        }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var obj = ((FrameworkElement)sender).DataContext as TableModel;
+            var childCallList = new CallListView(new DownloadRequest().DownloadLog(Dashboard.sessionCode, obj.title));
+            this.Content = childCallList;
         }
     }
 }

@@ -3,6 +3,7 @@ using SCKK_App.Requests;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SCKK_App.Views
 {
@@ -21,6 +22,14 @@ namespace SCKK_App.Views
         {
             var obj = ((FrameworkElement)sender).DataContext as UserModel;
             var userV = new UserManager(obj.id ,obj.username, obj.rankID, obj.groupID);
+            userV.ShowDialog();
+            DataGridList.ItemsSource = new UserManagerRequest().GetUsers(Dashboard.sessionCode);
+        }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var obj = ((FrameworkElement)sender).DataContext as UserModel;
+            var userV = new UserManager(obj.id, obj.username, obj.rankID, obj.groupID);
             userV.ShowDialog();
             DataGridList.ItemsSource = new UserManagerRequest().GetUsers(Dashboard.sessionCode);
         }

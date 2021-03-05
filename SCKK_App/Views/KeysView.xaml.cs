@@ -4,6 +4,7 @@ using SCKK_App.Requests;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SCKK_App.Views
 {
@@ -57,6 +58,12 @@ namespace SCKK_App.Views
             var obj = ((FrameworkElement)sender).DataContext as KeyModel;
             new KeyRequest().DeleteKey(Dashboard.sessionCode, obj.registerKey);
             DataGridList.ItemsSource = new KeyRequest().GetKeys(Dashboard.sessionCode);
+        }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var obj = ((FrameworkElement)sender).DataContext as KeyModel;
+            Clipboard.SetText(obj.registerKey);
         }
     }
 }

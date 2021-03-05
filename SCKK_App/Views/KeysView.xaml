@@ -70,6 +70,14 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Style.Setters>
+                        <Setter Property="Background" Value="#FF181622"/>
+                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    </Style.Setters>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
 
         <Button x:Name="BarOpenerBtn" VerticalAlignment="Bottom" Grid.ColumnSpan="2" MaxWidth="50" Height="20" Background="Transparent" BorderBrush="#282438" Click="BarOpener_Click">
