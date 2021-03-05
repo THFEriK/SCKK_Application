@@ -34,7 +34,8 @@
                   Foreground="#DDFFFFFF"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  EnableColumnVirtualization="True" >
+                  EnableColumnVirtualization="True"
+                  ItemsSource="{Binding Path=Log, Mode=OneWay}">
             <DataGrid.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
                    Color="Gray"/>
@@ -97,7 +98,7 @@
                                                 </DockPanel>
                                             </Expander.Header>
                                             <Expander.Content>
-                                                <ItemsPresenter FlowDirection="LeftToRight" />
+                                                <ItemsPresenter />
                                             </Expander.Content>
                                             <Expander.Style>
                                                 <Style TargetType="{x:Type Expander}">

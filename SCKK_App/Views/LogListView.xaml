@@ -70,7 +70,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
             <DataGrid.Resources>
-                <Style TargetType="DataGridRow">
+                <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
                     <Style.Setters>
                         <Setter Property="Background" Value="#FF181622"/>
                         <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:SCKK_App.Views"
+             d:DataContext="{d:DesignInstance Type=local:KeysView}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Foreground="White">
@@ -47,10 +48,11 @@
                   Foreground="#DDFFFFFF"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  EnableColumnVirtualization="True">
+                  EnableColumnVirtualization="True"
+                  ItemsSource="{Binding Path=Keys, Mode=OneWay}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Létrehozva" Binding="{Binding created, Mode=OneTime, StringFormat='yyyy-MM-dd'}" Width="*"/>
-                <DataGridTextColumn Header="Regisztrációs kulcs" Binding="{Binding registerKey, Mode=OneTime}" Width="*"/>
+                <DataGridTextColumn Header="Létrehozva" Binding="{Binding created, StringFormat='yyyy-MM-dd'}" Width="*"/>
+                <DataGridTextColumn Header="Regisztrációs kulcs" Binding="{Binding registerKey}" Width="*"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -71,7 +73,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
             <DataGrid.Resources>
-                <Style TargetType="DataGridRow">
+                <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
                     <Style.Setters>
                         <Setter Property="Background" Value="#FF181622"/>
                         <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>

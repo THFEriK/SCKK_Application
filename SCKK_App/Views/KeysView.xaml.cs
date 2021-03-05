@@ -2,6 +2,8 @@
 using SCKK_App.Models;
 using SCKK_App.Requests;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,14 +13,35 @@ namespace SCKK_App.Views
     /// <summary>
     /// Interaction logic for KeysView.xaml
     /// </summary>
-    public partial class KeysView : UserControl
+    public partial class KeysView : INotifyPropertyChanged
     {
         private bool sidebarOpen = false;
 
         public KeysView(List<KeyModel> keys)
         {
+            DataContext = this;
             InitializeComponent();
-            DataGridList.ItemsSource = keys;
+            Keys = keys;
+        }
+
+        private List<KeyModel> _keys;
+        public List<KeyModel> Keys
+        {
+            get { return _keys; }
+            set
+            {
+                if (_keys != value)
+                {
+                    _keys = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void BarOpener_Click(object sender, RoutedEventArgs e)
@@ -44,7 +67,7 @@ namespace SCKK_App.Views
         private void GenerateBtn_Click(object sender, RoutedEventArgs e)
         {
             new KeyRequest().GenerateKey(Dashboard.sessionCode);
-            DataGridList.ItemsSource = new KeyRequest().GetKeys(Dashboard.sessionCode);
+            Keys = new KeyRequest().GetKeys(Dashboard.sessionCode);
         }
 
         private void CopyBtn_Click(object sender, RoutedEventArgs e)
@@ -57,7 +80,7 @@ namespace SCKK_App.Views
         {
             var obj = ((FrameworkElement)sender).DataContext as KeyModel;
             new KeyRequest().DeleteKey(Dashboard.sessionCode, obj.registerKey);
-            DataGridList.ItemsSource = new KeyRequest().GetKeys(Dashboard.sessionCode);
+            Keys = new KeyRequest().GetKeys(Dashboard.sessionCode);
         }
 
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)

@@ -14,8 +14,8 @@ namespace SCKK_App.Requests
         {
             var result = string.Empty;
             var data = string.Empty;
-            //var host = "http://87.229.71.17/";
-            var host = "http://127.0.0.1/";
+            var host = "http://87.229.71.17/";
+            //var host = "http://127.0.0.1/";
             host += Url;
 
             if (postdata.Length % 2 != 0)

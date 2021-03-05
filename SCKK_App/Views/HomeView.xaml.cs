@@ -28,7 +28,7 @@ namespace SCKK_App.Views
                 StatsLB.Items.Clear();
                 StatsLB.Items.Add($"Rang:\n {userData[0].rank}");
                 StatsLB.Items.Add($"Csapat:\n {userData[0].team}");
-                StatsLB.Items.Add($"Felöltés:\n {userData[0].uploads} db");
+                StatsLB.Items.Add($"Feltöltés:\n {userData[0].uploads} db");
                 StatsSP.Visibility = Visibility.Visible;
             }
         }

@@ -2,6 +2,7 @@
 using SCKK_App.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,17 +12,37 @@ namespace SCKK_App.Views
     /// <summary>
     /// Interaction logic for CallList.xaml
     /// </summary>
-    public partial class CallListView
+    public partial class CallListView : INotifyPropertyChanged
     {
-        private bool sidebarOpen = false;
-        private bool isGrouped = false;
-        readonly List<ResultModel> log;
 
         public CallListView(List<ResultModel> log)
         {
+            DataContext = this;
             InitializeComponent();
-            DataGridStatistic.ItemsSource = log;
-            this.log = log;
+            Log = log;
+        }
+
+        private bool sidebarOpen = false;
+        private bool isGrouped = false;
+
+        private List<ResultModel> _log;
+        public List<ResultModel> Log
+        {
+            get { return _log; }
+            set
+            {
+                if (_log != value)
+                {
+                    _log = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private void BarOpener_Click(object sender, RoutedEventArgs e)
@@ -68,7 +89,7 @@ namespace SCKK_App.Views
 
         private void UploadBtn_Click(object sender, RoutedEventArgs e)
         {
-            var UploadWindow = new UploadView(log);
+            var UploadWindow = new UploadView(Log);
             UploadWindow.Show();
         }
     }
